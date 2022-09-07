@@ -14,15 +14,17 @@ const rl=readLine.createInterface({
 });
 
 //periksa apakah folder 'data' sudah dibuat
-if(!fs.existsSync('data')){
+const dirPath='data';
+if(!fs.existsSync(dirPath)){
     //jika belum, maka buat folder data
-    fs.mkdirSync('data');
+    fs.mkdirSync(dirPath);
 }
 
 //periksa apakah berkas contacts.json sudah dibuat
-if(!fs.existsSync('data/contacts.json')){
+const dataPath='data/contacts.json';
+if(!fs.existsSync(dataPath)){
     //jika belum, maka buat file contacts.json
-    fs.writeFileSync('data/contacts.json','[]');
+    fs.writeFileSync(dataPath,'[]');
 }
 
 //menampilkan tiga buah pertanyaan (nama,nomor telepon, email)
