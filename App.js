@@ -13,6 +13,18 @@ const rl=readLine.createInterface({
     output: process.stdout
 });
 
+//periksa apakah folder 'data' sudah dibuat
+if(!fs.existsSync('data')){
+    //jika belum, maka buat folder data
+    fs.mkdirSync('data');
+}
+
+//periksa apakah berkas contacts.json sudah dibuat
+if(!fs.existsSync('data/contacts.json')){
+    //jika belum, maka buat file contacts.json
+    fs.writeFileSync('data/contacts.json','[]');
+}
+
 //menampilkan tiga buah pertanyaan (nama,nomor telepon, email)
 //lalu menyimpan data-data tersebut ke dalam sebuah berkas .json
 rl.question('What is your name? ',(name)=>{
